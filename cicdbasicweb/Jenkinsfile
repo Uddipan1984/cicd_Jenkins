@@ -1,0 +1,18 @@
+#!groovy
+
+node {
+
+     try {
+         
+         
+          stage ('Maven Build') {
+             sh 'mvn clean package' ;
+          }
+     
+     }catch (err) {
+        notify('Git build error' + err) ;
+        throw new hudson.AbortException ('Error in GIT Build' + err);
+     }
+
+
+}
