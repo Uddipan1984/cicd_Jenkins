@@ -11,7 +11,7 @@ node {
         echo ('Exception happened..');
         notify('Git build error' + err) ;
         echo ('Notified Exception..');
-        #throw new hudson.AbortException ('Error in GIT Build' + err);
+        //throw new hudson.AbortException ('Error in GIT Build' + err);
      }
 
 
