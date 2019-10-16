@@ -8,8 +8,10 @@ node {
           }
      
      }catch (err) {
+        echo ('Exception happened..');
         notify('Git build error' + err) ;
-        throw new hudson.AbortException ('Error in GIT Build' + err);
+        echo ('Notified Exception..');
+        #throw new hudson.AbortException ('Error in GIT Build' + err);
      }
 
 
