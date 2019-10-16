@@ -4,13 +4,14 @@ node {
 
      try {
           stage ('Maven Build') {
-             sh 'mvn clean package' ;
+             def mavenHome = tool name: 'Maven-3', type: 'maven' ;
+             sh  "${mavenHome}/bin/mvn clean package" ;
           }
      
      }catch (err) {
         echo ('Exception happened..');
-        notify('Git build error' + err) ;
-        echo ('Notified Exception..');
+        //notify('Git build error' + err) ;
+        echo ('Notification is off- but Exception:'+ err);
         //throw new hudson.AbortException ('Error in GIT Build' + err);
      }
 
