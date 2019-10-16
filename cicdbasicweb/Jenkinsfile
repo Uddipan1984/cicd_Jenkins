@@ -5,12 +5,11 @@ node {
      try {
      
           stage ('Checking from git repository') {
-             
              git 'https://github.com/Uddipan1984/cicd_Jenkins';
           }
           stage ('Maven Build') {
              def mavenHome = tool name: 'Maven-3', type: 'maven' ;
-             sh  "${mavenHome}/bin/mvn clean package" ;
+             sh  "${mavenHome}/bin/mvn -f cicdbasicweb/pom.xml clean package" ;
           }
      
      }catch (err) {
