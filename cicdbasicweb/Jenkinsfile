@@ -24,11 +24,10 @@ node {
 		              def archiveCopyDir = '/Users/uddipanbasu/.jenkins/workspace/CICD_test/cicdbasicweb/target';
 		              def jarTodeply     = 'cicdbasicweb-0.0.1-SNAPSHOT.jar';
 		              
-		              sh "cd ${deployDir}" ;
 		              
 		              echo ('Archive is ready to copy in deploy directory..') ;
 		              
-		              sh "pwd && ls -ltr" ;
+		              sh "cd ${deployDir} && pwd && ls -ltr" ;
 		              
 		              sh "cp ${archiveCopyDir}/${jarTodeply} ." ;
 		              
