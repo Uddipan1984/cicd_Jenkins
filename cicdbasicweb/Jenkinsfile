@@ -27,9 +27,9 @@ node {
 		              
 		              echo ('Archive is ready to copy in deploy directory..') ;
 		              
-		              sh "cd ${deployDir} && pwd && ls -ltr && cp ${archiveCopyDir}/${jarTodeply} ." ;
+		              sh "pwd && ls -ltr" ;
 		              
-		              //sh "cp ${archiveCopyDir}/${jarTodeply} ." ;
+		              sh "cp ${archiveCopyDir}/${jarTodeply}  ${deployDir}" ;
 		              
 		              echo ('Archive is ready to boot with java run time.. ') ;
 		              
