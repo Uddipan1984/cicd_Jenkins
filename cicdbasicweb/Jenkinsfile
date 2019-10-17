@@ -4,19 +4,51 @@ node {
 
      try {
      
-          stage ('Checking from git repository') {
-             git 'https://github.com/Uddipan1984/cicd_Jenkins';
-          }
-          stage ('Maven Build') {
-             def mavenHome = tool name: 'Maven-3', type: 'maven' ;
-             sh  "${mavenHome}/bin/mvn -f cicdbasicweb/pom.xml clean package" ;
-          }
+		          stage ('git clone workspace') {
+		          
+		             git 'https://github.com/Uddipan1984/cicd_Jenkins';
+		             
+		          }
+		          
+		          
+		          stage ('MavenBuild') {
+		          
+		             def mavenHome = tool name: 'Maven-3', type: 'maven' ;
+		             sh  "${mavenHome}/bin/mvn -f cicdbasicweb/pom.xml clean package" ;
+		          }
+		          
+		          
+		          stage ('Move_Archive') {
+		          
+		              def deployDir      = '/Users/uddipanbasu/Documents/Uddipan_Apps/deply_cicd' ;
+		              def archiveCopyDir = '/Users/uddipanbasu/.jenkins/workspace/CICD_test/cicdbasicweb/target';
+		              def jarTodeply     = 'cicdbasicweb-0.0.1-SNAPSHOT.jar';
+		              
+		              sh "cd ${deployDir}" ;
+		              
+		              echo ('Archive is ready to copy in deploy directory..') ;
+		              
+		              sh "pwd && ls -ltr" ;
+		              
+		              sh "cp ${archiveCopyDir}/${jarTodeply} ." ;
+		              
+		              echo ('Archive is ready to boot with java run time.. ') ;
+		              
+		          }
+		          
+		          
+		          
      
      }catch (err) {
-        echo ('Exception happened..');
+     
+         echo ('Exception happened..');
+        
         //notify('Git build error' + err) ;
-        echo ('Notification is off- but Exception:'+ err);
-        //throw new hudson.AbortException ('Error in GIT Build' + err);
+        
+        //echo ('Notification is off- but Exception:'+ err);
+        
+        
+        throw new hudson.AbortException ('Error in GIT Build' + err);
      }
 
 
