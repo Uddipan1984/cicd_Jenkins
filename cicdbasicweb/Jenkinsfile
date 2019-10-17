@@ -48,7 +48,7 @@ node {
 		              
 		              sh "java -version" ;
 		              
-		              sh "nohup java -jar ${deployDir}/${jarTodeply} &" ;
+		              sh "java -jar ${deployDir}/${jarTodeply}" ;
 		          
 		          }
 		          
