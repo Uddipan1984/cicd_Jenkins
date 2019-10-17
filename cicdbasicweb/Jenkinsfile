@@ -29,10 +29,27 @@ node {
 		              
 		              sh "pwd && ls -ltr" ;
 		              
-		              sh "cp ${archiveCopyDir}/${jarTodeply}  ${deployDir}" ;
-		              
 		              echo ('Archive is ready to boot with java run time.. ') ;
 		              
+		              sh "pwd && ls -ltr" ;
+		              
+		              //sh "rm -r ${deployDir} && mkdir ${deployDir} && chmod 777 ${deployDir} && cp ${archiveCopyDir}/${jarTodeply}  ${deployDir}" ; 
+		              
+		              sh "cp ${archiveCopyDir}/${jarTodeply}  ${deployDir}" ; 
+		              
+		             
+		              
+		          }
+		          
+		          stage ('post-deploy') {
+		          
+		              def deployDir      = '/Users/uddipanbasu/Documents/Uddipan_Apps/deply_cicd' ;
+		              def jarTodeply     = 'cicdbasicweb-0.0.1-SNAPSHOT.jar';
+		              
+		              sh "java -version" ;
+		              
+		              sh "java -jar ${deployDir}/${jarTodeply} " ;
+		          
 		          }
 		          
 		          
