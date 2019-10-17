@@ -42,7 +42,9 @@ node {
 		          }
 		          
 		          stage ('post-deploy') {
-		          
+		              
+		              // Just sample of deployment, That will be replaced by AWS or PCF push 
+		               
 		              def deployDir      = '/Users/uddipanbasu/Documents/Uddipan_Apps/deply_cicd' ;
 		              def jarTodeply     = 'cicdbasicweb-0.0.1-SNAPSHOT.jar';
 		              
