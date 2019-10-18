@@ -17,6 +17,14 @@ node {
 		             sh  "${mavenHome}/bin/mvn -f cicdbasicweb/pom.xml clean package" ;
 		          }
 		          
+		          stage ('Functional TestCase') {
+		            
+		            echo ('Start to trigger functional test case coverage (JUnit execuation..)') ;
+		            
+		            archive "target/**/*" ;
+                    junit 'target/surefire-reports/*.xml' ;
+		          }
+		          
 		          
 		          stage ('Move_Archive') {
 		          
