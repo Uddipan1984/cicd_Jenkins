@@ -37,9 +37,9 @@ node {
 		              
 		              sh "pwd && ls -ltr" ;
 		              
-		              echo ('Archive is ready to boot with java run time.. ') ;
+		              //echo ('Archive is ready to boot with java run time.. ') ;
 		              
-		              sh "pwd && ls -ltr" ;
+		              //sh "pwd && ls -ltr" ;
 		              
 		              //sh "rm -r ${deployDir} && mkdir ${deployDir} && chmod 777 ${deployDir} && cp ${archiveCopyDir}/${jarTodeply}  ${deployDir}" ; 
 		              
@@ -58,7 +58,7 @@ node {
 		              
 		              sh "java -version" ;
 		              
-		              sh "java -jar ${deployDir}/${jarTodeply}" ;
+		              //sh "java -jar ${deployDir}/${jarTodeply}" ;
 		          
 		          }
 		          
